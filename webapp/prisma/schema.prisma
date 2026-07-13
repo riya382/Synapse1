@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  name      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Question  Question[]
+  projects  Project[]  @relation("ProjectToUser")
+}
+
+model Project {
+  id            String     @id @default(cuid())
+  name          String
+  githubUrl     String?
+  documentation String?
+  mermaidGraph  String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  commits       Commit[]
+  meetings      Meeting[]
+  questions     Question[]
+  users         User[]     @relation("ProjectToUser")
+}
+
+model Question {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  projectId String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project   Project  @relation(fields: [projectId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Commit {
+  id                 String   @id @default(cuid())
+  commitMessage      String
+  commitHash         String
+  commitAuthorName   String
+  commitAuthorAvatar String
+  commitDate         DateTime
+  summary            String
+  projectId          String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  project            Project  @relation(fields: [projectId], references: [id])
+}
+
+model Meeting {
+  id        String   @id @default(cuid())
+  name      String
+  url       String
+  projectId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  issues    Issue[]
+  project   Project  @relation(fields: [projectId], references: [id])
+}
+
+model Issue {
+  id        String   @id @default(cuid())
+  start     String
+  end       String
+  gist      String
+  headline  String
+  summary   String
+  meetingId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  meeting   Meeting  @relation(fields: [meetingId], references: [id])
+}
