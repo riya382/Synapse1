@@ -1,27 +1,50 @@
-# Synapse
+<div align="center">
 
-**AI-Powered Codebase & Meeting Intelligence Platform**
+# 🧠 Synapse
 
-`next.js` `fastapi` `pinecone` `assemblyai` `groq` `postgresql`
+### AI-Powered Codebase & Meeting Intelligence Platform
 
-Synapse is a full-stack AI productivity tool for development teams. It reads your entire GitHub codebase and answers natural-language questions about it, generates AI summaries of commits, transcribes team meetings, and lets you ask questions about what was discussed — all powered by a Retrieval-Augmented Generation (RAG) pipeline so answers stay grounded in your actual code and conversations, not generic guesses.
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](#)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](#)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](#)
+[![Pinecone](https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white)](#)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](#)
 
-🔗 [Live Demo](#)
+Synapse reads your entire GitHub codebase and answers natural-language questions about it, generates AI summaries of commits, transcribes team meetings, and lets you ask questions about what was discussed — all powered by a **Retrieval-Augmented Generation (RAG)** pipeline so answers stay grounded in your actual code and conversations, not generic guesses.
+
+**[🔗 Live Demo](#)** · **[📖 Documentation](#-overview)** · **[🐛 Report a Bug](#)**
+
+</div>
+
+---
 
 ---
 
 ## 📋 Table of Contents
-- [Overview](#-overview)
-- [Screenshots](#-screenshots)
-- [Tech Stack](#️-tech-stack)
-- [Key Features](#-key-features)
-- [How the AI Pipeline Works](#-how-the-ai-pipeline-works)
-- [Architecture Highlights](#️-architecture-highlights)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Environment Variables](#-environment-variables)
-- [Future Improvements](#-future-improvements)
-- [Author](#-author)
+
+<table>
+<tr>
+<td valign="top" width="50%">
+
+- [🤖 Overview](#-overview)
+- [📸 Screenshots](#-screenshots)
+- [⚙️ Tech Stack](#️-tech-stack)
+- [🔋 Key Features](#-key-features)
+- [🧠 How the AI Pipeline Works](#-how-the-ai-pipeline-works)
+
+</td>
+<td valign="top" width="50%">
+
+- [🏗️ Architecture Highlights](#️-architecture-highlights)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Getting Started](#-getting-started)
+- [🔐 Environment Variables](#-environment-variables)
+- [🔭 Future Improvements](#-future-improvements)
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -41,7 +64,7 @@ Built with **Next.js** on the frontend and **FastAPI (Python)** on the backend, 
 
 ## 📸 Screenshots
 
-
+**Home — Project Dashboard**
 *Ask a question, upload a meeting, and poll commits — all from one screen.*
 
 ![Synapse home dashboard](./assets/home-dashboard.png)
