@@ -2,7 +2,9 @@
 
 # 🧠 Synapse
 
+
 ### AI-Powered Codebase & Meeting Intelligence Platform
+
 
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](#)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](#)
@@ -11,7 +13,9 @@
 [![Pinecone](https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white)](#)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](#)
 
+
 Synapse reads your entire GitHub codebase and answers natural-language questions about it, generates AI summaries of commits, transcribes team meetings, and lets you ask questions about what was discussed — all powered by a **Retrieval-Augmented Generation (RAG)** pipeline so answers stay grounded in your actual code and conversations, not generic guesses.
+
 **[🔗 Live Demo](https://synapse1-pi.vercel.app)** · **[📖 Documentation](#-overview)** · **[🐛 Report a Bug](#)**· 
 
 </div>
@@ -64,9 +68,9 @@ Built with **Next.js** on the frontend and **FastAPI (Python)** on the backend, 
 ## 📸 Screenshots
 
 **Home — Project Dashboard**
-*Ask a question, upload a meeting, and poll commits — all from one screen.*
 
-![Synapse home dashboard](./assets/home-dashboard.png)
+
+![Synapse home dashboard](https://github.com/riya382/Synapse1/blob/main/Screenshots/Screenshot%202026-07-21%20152348.png?raw=true)
 
 ---
 
