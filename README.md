@@ -12,8 +12,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](#)
 
 Synapse reads your entire GitHub codebase and answers natural-language questions about it, generates AI summaries of commits, transcribes team meetings, and lets you ask questions about what was discussed — all powered by a **Retrieval-Augmented Generation (RAG)** pipeline so answers stay grounded in your actual code and conversations, not generic guesses.
-
-**[🔗 Live Demo](#)** · **[📖 Documentation](#-overview)** · **[🐛 Report a Bug](#)**
+**[🔗 Live Demo](https://synapse1-pi.vercel.app)** · **[📖 Documentation](#-overview)** · **[🐛 Report a Bug](#)**· 
 
 </div>
 
@@ -278,7 +277,7 @@ Open `http://localhost:3000`.
 
 ## 👨‍💻 Author
 
-**[Your Name]**
+**[Riya gupta]**
 
-- GitHub: [@your-username](#)
-- Repository: [Synapse](#)
+- GitHub:  [@riya382](https://github.com/riya382)
+- Repository: [Synapse](https://github.com/riya382/Synapse1)
