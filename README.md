@@ -11,13 +11,11 @@
 [![Pinecone](https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white)](#)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](#)
 
-Synapse reads your entire GitHub codebase and answers natural-language questions about it, generates AI summaries of commits, transcribes team meetings, and lets you ask questions about what was discussed — all powered by a **Retrieval-Augmented Generation (RAG)** pipeline so answers stay grounded in your actual code and conversations, not generic guesses.
+Synapse reads your entire GitHub codebase and answers natural-language questions about it, generates AI summaries of commits, transcribes team meetings, and lets you ask questions about what was discussed — all powered by a **Retrieval-Augmented Generation (RAG)** pipeline, so answers stay grounded in your actual code and conversations instead of generic guesses.
 
-**[🔗 Live Demo](#)** · **[📖 Documentation](#-overview)** · **[🐛 Report a Bug](#)**
+**[🔗 Live Demo](https://synapse1-pi.vercel.app)** · **[📖 Documentation](#-overview)** · **[🐛 Report a Bug](#)**
 
 </div>
-
----
 
 ---
 
@@ -50,15 +48,15 @@ Synapse reads your entire GitHub codebase and answers natural-language questions
 
 ## 🤖 Overview
 
-Synapse takes the guesswork out of understanding a new codebase or catching up on a meeting you missed. Instead of manually digging through files or replaying recordings, it lets you just *ask*.
+Synapse takes the guesswork out of understanding a new codebase or catching up on a meeting you missed. Instead of manually digging through files or replaying recordings, you can simply *ask*.
 
-- **Link a Repo** — connect any GitHub repository and Synapse clones it, reads every file, and builds a searchable knowledge base of the code
-- **Codebase Q&A** — ask plain-English questions like *"which file handles authentication?"* and get an answer grounded in the actual source
-- **Commit Summaries** — poll recent commits and get AI-generated, plain-English summaries of what changed and why
-- **Meeting Transcription** — upload a recording and Synapse transcribes it, extracts chapters, and makes it fully searchable
-- **Meeting Q&A** — ask questions about anything discussed in a past meeting and get an answer with the relevant snippet as context
+- **🔗 Link a Repo** — connect any GitHub repository; Synapse clones it, reads every file, and builds a searchable knowledge base of the code
+- **💬 Codebase Q&A** — ask plain-English questions like *"which file handles authentication?"* and get an answer grounded in the actual source
+- **📝 Commit Summaries** — pull recent commits and get AI-generated, plain-English summaries of what changed and why
+- **🎙️ Meeting Transcription** — upload a recording and Synapse transcribes it, extracts chapters, and makes it fully searchable
+- **❓ Meeting Q&A** — ask questions about anything discussed in a past meeting and get an answer with the relevant snippet as context
 
-Built with **Next.js** on the frontend and **FastAPI (Python)** on the backend, with **AssemblyAI** for transcription, **Sentence-Transformers** for embeddings, **Pinecone** for vector search, and **Groq / Cohere** powering answer generation.
+Built with **Next.js** on the frontend and **FastAPI (Python)** on the backend, using **AssemblyAI** for transcription, **Sentence-Transformers** for embeddings, **Pinecone** for vector search, and **Groq / Cohere** for answer generation.
 
 ---
 
@@ -67,7 +65,7 @@ Built with **Next.js** on the frontend and **FastAPI (Python)** on the backend, 
 **Home — Project Dashboard**
 *Ask a question, upload a meeting, and poll commits — all from one screen.*
 
-![Synapse home dashboard](./assets/home-dashboard.png)
+![Synapse home dashboard](https://github.com/riya382/Synapse1/blob/main/Screenshots/Screenshot%202026-07-21%20152348.png?raw=true)
 
 ---
 
@@ -96,7 +94,7 @@ Built with **Next.js** on the frontend and **FastAPI (Python)** on the backend, 
 ## 🔋 Key Features
 
 ### 🔍 Codebase Intelligence
-- **Repo Linking** — connect a GitHub repository by URL; Synapse clones it and indexes the code
+- **Repo Linking** — connect a GitHub repository by URL; Synapse clones and indexes the code
 - **Natural-Language Q&A** — ask questions about structure, logic, or specific files
 - **Automatic Documentation** — AI-generated summaries of source files for faster onboarding
 
@@ -105,7 +103,7 @@ Built with **Next.js** on the frontend and **FastAPI (Python)** on the backend, 
 - **AI Summaries** — plain-English explanation of each commit's changes, generated from the diff
 
 ### 🎙️ Meeting Intelligence
-- **Upload & Transcribe** — drop in an audio file, get a full transcript with auto-generated chapters (title, timestamp range, gist, headline, summary)
+- **Upload & Transcribe** — drop in an audio file and get a full transcript with auto-generated chapters (title, timestamp range, gist, headline, summary)
 - **Ask Follow-Up Questions** — query anything said in the meeting and get an answer grounded in the transcript
 - **Per-Meeting Namespaces** — each meeting's embeddings are isolated so answers never mix context across meetings
 
@@ -147,17 +145,17 @@ User asks a question
 Grounded answer returned to user
 ```
 
-The same retrieve → augment → generate pattern powers codebase Q&A: the repo's files replace the meeting transcript as the source content that gets chunked, embedded, and searched.
+The same retrieve → augment → generate pattern powers codebase Q&A — the repo's files replace the meeting transcript as the source content that gets chunked, embedded, and searched.
 
 ---
 
 ## 🏗️ Architecture Highlights
 
-- **Separate Frontend/Backend Services** — Next.js client talks to a standalone FastAPI service over HTTP; each can be deployed and scaled independently
-- **Async-First Backend** — FastAPI routes use `async`/`await` throughout, with `asyncio.gather` to generate embeddings for multiple chunks concurrently instead of sequentially
-- **Local Embeddings, No Per-Query API Cost** — embeddings run on-device via Sentence-Transformers rather than a paid API, since the chosen LLM provider (Groq) doesn't offer an embeddings endpoint
+- **Separate Frontend/Backend Services** — the Next.js client talks to a standalone FastAPI service over HTTP; each can be deployed and scaled independently
+- **Async-First Backend** — FastAPI routes use `async`/`await` throughout, with `asyncio.gather` generating embeddings for multiple chunks concurrently instead of sequentially
+- **Local Embeddings, Zero Per-Query Cost** — embeddings run on-device via Sentence-Transformers rather than a paid API, since the chosen LLM provider (Groq) doesn't offer an embeddings endpoint
 - **Per-Namespace Vector Isolation** — each meeting gets its own Pinecone namespace so retrieval never leaks context between unrelated meetings
-- **Type-Safe API Layer** — tRPC gives end-to-end TypeScript types between frontend and the Node-side API layer, catching mismatches at compile time
+- **Type-Safe API Layer** — tRPC gives end-to-end TypeScript types between the frontend and the Node-side API layer, catching mismatches at compile time
 
 ---
 
@@ -205,8 +203,8 @@ Synapse/
 
 ### 1. Clone
 ```bash
-git clone https://github.com/<your-username>/Synapse.git
-cd Synapse
+git clone https://github.com/riya382/Synapse1.git
+cd Synapse1
 ```
 
 ### 2. Backend Setup
@@ -240,7 +238,7 @@ cd webapp
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open `http://localhost:3000` in your browser.
 
 ---
 
@@ -278,7 +276,13 @@ Open `http://localhost:3000`.
 
 ## 👨‍💻 Author
 
-**[Your Name]**
+**Riya Gupta**
 
-- GitHub: [@your-username](#)
-- Repository: [Synapse](#)
+- GitHub: [@riya382](https://github.com/riya382)
+- Repository: [Synapse](https://github.com/riya382/Synapse1)
+
+<div align="center">
+
+⭐ If you found this project interesting, consider giving it a star!
+
+</div>
